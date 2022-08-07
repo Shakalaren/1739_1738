@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'authapp',
     'basketapp',
     'adminapp',
-
     'social_django',
 ]
 
@@ -173,23 +172,23 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Auth
+AUTH_USER_MODEL = "authapp.ShopUser"
 
-DOMAIN_NAME = 'http://127.0.0.1:8000'
+LOGIN_URL = "auth:login"
 
-# EMAIL_HOST = 'localhost'
-# EMAIL_PORT = '25'
-# EMAIL_HOST_USER = 'django@geekshop.local'
-# EMAIL_HOST_PASSWORD = 'geekshop'
-# EMAIL_USE_SSL = False
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '6138662d624633'
-EMAIL_HOST_PASSWORD = '9ec7547a94560f'
-EMAIL_PORT = '2525'
+DOMAIN_NAME = 'http://localhost:8000'
+"""
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '25'
+EMAIL_HOST_USER = 'django@geekshop.local'
+EMAIL_HOST_PASSWORD = 'geekshop'
+EMAIL_USE_SSL = False
+"""
 
-# вариант python -m smtpd -n -c DebuggingServer localhost:25
-# EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
-
-# вариант логирования сообщений почты в виде файлов вместо отправки
+#вариант python -m smtpd -n -c DebuggingServer localhost:25
+EMAIL_HOST_USER, EMAIL_HOST_PASSWORD = None, None
+#вариант логирования сообщений почты в виде файлов вместо отправки
 # EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 # EMAIL_FILE_PATH = 'tmp/email-messages/'
