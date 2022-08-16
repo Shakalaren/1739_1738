@@ -7,6 +7,7 @@ from mainapp.models import ProductCategory, Product
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
+
 def get_hot_product():
     products = Product.objects.all()
 
