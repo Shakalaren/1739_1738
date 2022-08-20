@@ -8,10 +8,9 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
 
 from basketapp.models import Basket
+from mainapp.models import Product
 from ordersapp.forms import OrderItemForm
 from ordersapp.models import Order, OrderItem
-
-from geekshop.mainapp.models import Product
 
 
 def is_ajax(request):
@@ -74,6 +73,7 @@ class OrderUpdate(UpdateView):
     model = Order
     fields = []
     success_url = reverse_lazy('orders:orders_list')
+
 
     def get_context_data(self, **kwargs):
         context = super(OrderUpdate, self).get_context_data(**kwargs)
@@ -140,8 +140,8 @@ def product_quantity_update_save(sender, update_fields, instance, **kwargs):
 @receiver(pre_delete, sender=OrderItem)
 @receiver(pre_delete, sender=Basket)
 def product_quantity_update_delete(sender, instance, **kwargs):
-    instance.product.quantity += instance.quantity
-    instance.product.save()
+        instance.product.quantity += instance.quantity
+        instance.product.save()
 
 
 def get_product_price(request, pk):
