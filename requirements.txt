@@ -12,4 +12,4 @@ psycopg2-binary
 requests
 gunicorn
 django-environ
-pip install social_auth_app_django
+social_auth_app_django
