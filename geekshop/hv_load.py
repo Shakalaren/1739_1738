@@ -6,7 +6,9 @@ def index(l):
 
 
 def products(l):
-    l.client.get("/products/")
+    l.client.get("/contacts/")
+    l.client.get("/auth/login/")
+
 
 
 # def login(l):
